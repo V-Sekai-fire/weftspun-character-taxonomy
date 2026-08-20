@@ -22,7 +22,7 @@ defmodule CharacterTaxonomy.Taxonomy do
   randomizer page can pick inside it.
 
   The Agent holds the read-path cache only. `CharacterTaxonomy.Repo`
-  is the durable store, on CockroachDB, so a created id or a widened
+  is the durable store, on SQLite, so a created id or a widened
   range survives a restart and a redeploy. `hydrate/1` rebuilds the
   cache from the database at boot.
   """
