@@ -30,7 +30,7 @@ defmodule CharacterTaxonomy.Release do
   Applies every migration that the database has not run.
 
   This includes `..._seed_taxonomy.exs`, so a first boot against an
-  empty CockroachDB node ends with the seed loaded, and a later boot
+  empty database ends with the seed loaded, and a later boot
   against the same node runs no migration twice.
   """
   @spec migrate() :: :ok

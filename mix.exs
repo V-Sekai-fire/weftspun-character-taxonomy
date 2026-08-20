@@ -45,11 +45,11 @@ defmodule CharacterTaxonomy.MixProject do
       {:plug, "~> 1.16"},
       {:jason, "~> 1.4"},
       # Persistence. The taxonomy must survive a restart and a
-      # redeploy, so it is not Agent state alone. CockroachDB is the
-      # database weftspun_studio already runs, per RFD 0020.
-      {:cockroach_local, github: "weftspun/cockroach-local"},
+      # redeploy, so it is not Agent state alone. A SQLite file is the
+      # whole requirement at this scale, and it drops the dependency on
+      # a cluster that had to be running before anything worked.
       {:ecto_sql, "~> 3.12"},
-      {:postgrex, "~> 0.19"}
+      {:ecto_sqlite3, "~> 0.17"}
     ]
   end
 

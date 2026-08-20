@@ -3,3 +3,8 @@
 /.fetch
 erl_crash.dump
 *.ez
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
