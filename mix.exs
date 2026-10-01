@@ -36,7 +36,7 @@ defmodule CharacterTaxonomy.MixProject do
       {:hrr, github: "weftspun/elixir-holographic-reduced-representation"},
       # The DSL that reads priv/domains/character_concept_generator.ex,
       # and the planner the plan tool below calls.
-      {:taskweft, github: "taskweft/taskweft", ref: "main"},
+      {:taskweft, github: "V-Sekai-fire/interactor-taskweft", branch: "main/from-taskweft"},
       # The MCP server framework taskweft's own server.ex uses. RFD
       # 0037 cites taskweft-mcp.fly.dev/mcp as the existing instance.
       {:ex_mcp, "~> 1.0.0-rc"},
