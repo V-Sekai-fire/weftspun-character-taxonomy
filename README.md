@@ -17,4 +17,4 @@ iex -S mix
 
 ## Licence
 
-MIT, per the SPDX headers in the sources. There is no `LICENSE` file.
+MIT. See [LICENSE](LICENSE).
