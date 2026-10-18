@@ -3,18 +3,15 @@
 #
 # RFD 0065's taxonomy, as its own Fly.io app — a separate deploy
 # target from weftspun_studio, the way taskweft/taskweft runs its own
-# MCP server (RFD 0037). One machine, one colocated CockroachDB node
-# on a Fly Volume, per RFD 0062's colocation pattern.
+# MCP server (RFD 0037). One machine. Its SQLite database keeps its
+# pages in FoundationDB, so the machine needs no volume; the
+# entrypoint reads FDB_CLUSTER_CONTENT and FDB_TLS_*_B64 secrets.
 
 app = "weftspun-character-taxonomy"
 primary_region = "sjc"
 
 [build]
   dockerfile = "Dockerfile"
-
-[mounts]
-  source = "character_taxonomy_data"
-  destination = "/data"
 
 # The headless-CMS JSON route and the static randomizer page.
 [[services]]
