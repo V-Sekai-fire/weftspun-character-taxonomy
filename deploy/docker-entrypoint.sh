@@ -1,28 +1,17 @@
 #!/bin/sh
-# SPDX-License-Identifier: MIT
-# Copyright (c) 2026 K. S. Ernest (iFire) Lee
-#
-# Start the colocated CockroachDB node, wait for it, migrate (which
-# runs the RFD 0065 seed migration on a fresh volume), then exec the
-# release. One container, two processes, the RFD 0062 colocation
-# pattern for this second, separate deploy target.
+# Write the FoundationDB cluster file and client TLS files from Fly
+# secrets, wait for the cluster, migrate (which runs the RFD 0065 seed
+# migration on a fresh database), then exec the release.
 set -eu
-
-cockroach start-single-node --insecure \
-  --store=path=/data/cockroach \
-  --listen-addr=127.0.0.1:26257 \
-  --http-addr=127.0.0.1:8081 &
-CRDB_PID=$!
-
-trap 'kill "$CRDB_PID" 2>/dev/null || true' TERM INT
-
-for _ in $(seq 1 60); do
-  if cockroach sql --insecure --host=127.0.0.1:26257 -e "SELECT 1" >/dev/null 2>&1; then
-    break
-  fi
-  sleep 1
-done
-
-/app/bin/character_taxonomy eval "CharacterTaxonomy.Release.create()"
+t=/etc/foundationdb/tls
+mkdir -p $t
+printf '%s\n' "$FDB_CLUSTER_CONTENT" > /etc/foundationdb/fdb.cluster
+printf '%s' "$FDB_TLS_CERT_B64" | base64 -d > $t/cert.pem
+printf '%s' "$FDB_TLS_KEY_B64" | base64 -d > $t/key.pem
+printf '%s' "$FDB_TLS_CA_B64" | base64 -d > $t/ca.pem
+chmod 600 $t/key.pem
+export FDB_TLS_CERTIFICATE_FILE=$t/cert.pem FDB_TLS_KEY_FILE=$t/key.pem FDB_TLS_CA_FILE=$t/ca.pem
+export FDB_TLS_VERIFY_PEERS="Check.Valid=1,S.CN>=fdb-,S.CN<=.chibifire.com"
+until fdbcli --exec "status minimal" --timeout 5 | grep -q available; do echo "waiting for fdb"; sleep 2; done
 /app/bin/character_taxonomy eval "CharacterTaxonomy.Release.migrate()"
 exec /app/bin/character_taxonomy start
