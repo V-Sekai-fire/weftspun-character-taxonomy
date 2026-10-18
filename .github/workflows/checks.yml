@@ -53,4 +53,13 @@ jobs:
           cmake --build build --target weftfdb
           ls -la build/weftfdb.so
       - run: mix deps.get
-      - run: mix test --trace
+      - name: Run tests
+        run: |
+          mix ecto.create --quiet
+          TAXONOMY_MIGRATION_POOL=1 mix ecto.migrate
+          mix test --trace
+      - name: The test database lives in FoundationDB
+        run: |
+          keys=$(fdbcli --exec "getrangekeys weft/db/character_taxonomy_test.v1/ weft/db/character_taxonomy_test.v10 100" | grep -c "weft/db/character_taxonomy_test.v1/")
+          echo "keys under weft/db/character_taxonomy_test.v1/: $keys"
+          test "$keys" -gt 0
