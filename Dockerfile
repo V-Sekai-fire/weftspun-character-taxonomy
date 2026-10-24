@@ -5,7 +5,7 @@
 # in FoundationDB through datasource-store's weftfdb extension, which the
 # runtime stage builds against the FoundationDB client. The entrypoint
 # writes the cluster file and TLS files from Fly secrets, migrates (which
-# includes the RFD 0065 seed migration), then execs the release in the
+# includes the RFD66606-0065 seed migration), then execs the release in the
 # foreground.
 ARG BASE_TAG=1.20.3-erlang-29.0.5-debian-bookworm-20260803-slim
 ARG FDB_VERSION=7.3.76

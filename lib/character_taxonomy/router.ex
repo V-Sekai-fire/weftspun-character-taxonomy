@@ -5,7 +5,7 @@ defmodule CharacterTaxonomy.Router do
   @moduledoc """
   Headless-CMS HTTP surface, in `WeftspunStudio.Router`'s own style.
 
-  One JSON route serves the taxonomy RFD 0065 builds. The static
+  One JSON route serves the taxonomy RFD66606-0065 builds. The static
   randomizer page is content, not code, so it lives under
   `priv/static/` and this plug only serves the file.
   """

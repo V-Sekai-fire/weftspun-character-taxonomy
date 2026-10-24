@@ -3,10 +3,10 @@
 
 defmodule CharacterTaxonomy.Seed do
   @moduledoc """
-  A first-boot seed for RFD 0065's taxonomy, before the RFD 0064
+  A first-boot seed for RFD66606-0065's taxonomy, before the RFD66606-0064
   dataset run populates it for real.
 
-  These values are a starting point, not a fixed list. RFD 0065's
+  These values are a starting point, not a fixed list. RFD66606-0065's
   Decision names the point of this schema: the taxonomy comes from
   the training data, not from preconceived categories. Every entry
   here is a creation through the normal `resolve_or_create` path, and the

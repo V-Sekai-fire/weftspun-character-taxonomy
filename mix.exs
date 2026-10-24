@@ -3,10 +3,10 @@ defmodule CharacterTaxonomy.MixProject do
 
   @version "0.1.0"
 
-  # RFD 0065 implements its taxonomy here, as its own Fly.io app, and
+  # RFD66606-0065 implements its taxonomy here, as its own Fly.io app, and
   # not as a route inside weftspun_studio. taskweft/taskweft runs the
   # same way: one small Elixir service, its own MCP server, its own
-  # domain. RFD 0037 cites that instance. This is a second one, over
+  # domain. RFD66606-0037 cites that instance. This is a second one, over
   # the character_concept_generator domain instead of a general one.
   def project do
     [
@@ -29,8 +29,8 @@ defmodule CharacterTaxonomy.MixProject do
 
   defp deps do
     [
-      # The phase algebra RFD 0021 shares across the weftspun
-      # repositories. RFD 0065 calls HRR.Cleanup from here, inside
+      # The phase algebra RFD66606-0021 shares across the weftspun
+      # repositories. RFD66606-0065 calls HRR.Cleanup from here, inside
       # taskweft's own generation tooling, and not from
       # WeftspunStudio.FactVector.
       {:hrr, github: "weftspun/elixir-holographic-reduced-representation"},

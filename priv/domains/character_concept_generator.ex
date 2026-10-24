@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: MIT
 #
 # Character concept authoring, as a RECTGTN HTN domain.
-# RFD 0064 records why this pipeline is a domain and not a script.
-# RFD 0065 records the schema this file follows.
+# RFD66606-0064 records why this pipeline is a domain and not a script.
+# RFD66606-0065 records the schema this file follows.
 #
-# `trait` and `numeric` hold one value per character, per RFD 0065's
+# `trait` and `numeric` hold one value per character, per RFD66606-0065's
 # rule 1. Each value comes from CharacterTaxonomy.Taxonomy, which
 # resolves or creates a capability id before a problem.ex ever calls
 # a_set_trait. This domain holds no fixed capability list, so it
@@ -34,7 +34,7 @@ defmodule CharacterConceptGenerator do
     # CharacterTaxonomy.Taxonomy.resolve_or_create/4. The guard stops
     # a second call from overwriting an already-set role, which keeps
     # one value per character per role, the functional dependency
-    # RFD 0065 rests on.
+    # RFD66606-0065 rests on.
     a_set_trait: %{
       params: [:role, :capability_id],
       body: [

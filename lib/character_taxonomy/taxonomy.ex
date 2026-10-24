@@ -3,7 +3,7 @@
 
 defmodule CharacterTaxonomy.Taxonomy do
   @moduledoc """
-  RFD 0065's data-driven trait taxonomy for RFD 0064's character
+  RFD66606-0065's data-driven trait taxonomy for RFD66606-0064's character
   concept generator.
 
   Holds no fixed capability list. A caller resolves a trait value
@@ -13,7 +13,7 @@ defmodule CharacterTaxonomy.Taxonomy do
   list.
 
   Categorical roles (`hair_color`, `eye_color`, `pose`, `clothing`)
-  go through `HRR`/`HRR.Cleanup`, the library RFD 0021 supplies. A
+  go through `HRR`/`HRR.Cleanup`, the library RFD66606-0021 supplies. A
   near-duplicate caption phrase binds to the same vector
   neighborhood and resolves to the existing id.
 

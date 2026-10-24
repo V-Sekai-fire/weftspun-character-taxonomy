@@ -3,7 +3,7 @@
 
 defmodule CharacterTaxonomy.Application do
   @moduledoc """
-  Two listeners: the MCP server (RFD 0065's tools), and the
+  Two listeners: the MCP server (RFD66606-0065's tools), and the
   headless-CMS HTTP surface (the taxonomy route and the static
   randomizer page). One Fly.io app, one release, one supervision
   tree, and a separate deploy target from `weftspun_studio`.

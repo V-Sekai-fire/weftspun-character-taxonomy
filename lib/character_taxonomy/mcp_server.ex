@@ -3,13 +3,13 @@
 
 defmodule CharacterTaxonomy.MCPServer do
   @moduledoc """
-  MCP server for RFD 0065's trait taxonomy.
+  MCP server for RFD66606-0065's trait taxonomy.
 
-  taskweft/taskweft runs its own MCP server, cited in RFD 0037, for
+  taskweft/taskweft runs its own MCP server, cited in RFD66606-0037, for
   `plan` and `validate` over any RECTGTN domain. This is a second,
   separate MCP service, scoped to one embedded domain,
-  `character_concept_generator` (RFD 0064), and to the taxonomy
-  resolve step RFD 0065 adds around it.
+  `character_concept_generator` (RFD66606-0064), and to the taxonomy
+  resolve step RFD66606-0065 adds around it.
 
   ## Tools
 

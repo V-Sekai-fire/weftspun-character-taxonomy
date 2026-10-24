@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 K. S. Ernest (iFire) Lee
 #
-# RFD 0065's taxonomy, as its own Fly.io app — a separate deploy
+# RFD66606-0065's taxonomy, as its own Fly.io app — a separate deploy
 # target from weftspun_studio, the way taskweft/taskweft runs its own
-# MCP server (RFD 0037). One machine. Its SQLite database keeps its
+# MCP server (RFD66606-0037). One machine. Its SQLite database keeps its
 # pages in FoundationDB, so the machine needs no volume; the
 # entrypoint reads FDB_CLUSTER_CONTENT and FDB_TLS_*_B64 secrets.
 
@@ -31,7 +31,7 @@ primary_region = "sjc"
     interval = "15s"
     timeout = "5s"
 
-# The MCP server RFD 0065's tools live behind.
+# The MCP server RFD66606-0065's tools live behind.
 [[services]]
   internal_port = 4001
   protocol = "tcp"

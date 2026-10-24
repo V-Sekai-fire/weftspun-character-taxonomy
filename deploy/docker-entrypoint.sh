@@ -1,6 +1,6 @@
 #!/bin/sh
 # Write the FoundationDB cluster file and client TLS files from Fly
-# secrets, wait for the cluster, migrate (which runs the RFD 0065 seed
+# secrets, wait for the cluster, migrate (which runs the RFD66606-0065 seed
 # migration on a fresh database), then exec the release.
 set -eu
 t=/etc/foundationdb/tls

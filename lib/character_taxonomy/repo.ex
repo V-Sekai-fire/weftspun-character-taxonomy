@@ -11,7 +11,7 @@ defmodule CharacterTaxonomy.Repo do
   connection because every open of a weft_fdb database takes its fence.
   Without it, a plain file.
 
-  RFD 0065's taxonomy must survive a restart and a redeploy, so it
+  RFD66606-0065's taxonomy must survive a restart and a redeploy, so it
   is not `CharacterTaxonomy.Taxonomy`'s Agent state alone. That Agent
   stays as the read-path cache. This repo is the write-through and
   the boot-time hydration source.
